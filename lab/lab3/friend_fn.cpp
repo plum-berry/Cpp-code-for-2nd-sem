@@ -31,7 +31,12 @@ class test2{
     {
         this->b = b;
     }
-    friend void swap(test1& t1,test2& t2);
+    friend void swap(test1& t1,test2& t2)
+     {
+        int temp = t1.a;
+        t1.a = t2.b;
+        t2.b = temp;        
+    }
     void display()
     {
         cout<<b<<endl;
