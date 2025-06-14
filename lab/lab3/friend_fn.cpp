@@ -1,56 +1,51 @@
 #include<iostream>
 using namespace std;
-class test2;
-class test1
+
+class Two;
+class One
 {
-    private:
-    int a;
-
-    public:
-    test1(int a)
+  private:
+    int data;
+  public:
+    One(int data)
     {
-        this->a = a;
+      this->data = data;
     }
-    friend void swap(test1& t1,test2& t2)
-    {
-        int temp = t1.a;
-        t1.a = t2.b;
-        t2.b = temp;        
-    }
-    friend class test2;
+    friend void swap(One&,Two&);
     void display()
     {
-        cout<<a<<endl;
+      cout<<"data of one: "<<data<<endl;
     }
 };
-class test2{
-    private:
-    int b;
-    public:
-    test2(int b)
+class Two
+{
+   private:
+    int data;
+  public:
+    Two(int data)
     {
-        this->b = b;
+      this->data = data;
     }
-    friend void swap(test1& t1,test2& t2)
-     {
-        int temp = t1.a;
-        t1.a = t2.b;
-        t2.b = temp;        
-    }
+    friend void swap(One&,Two&);
     void display()
     {
-        cout<<b<<endl;
-    }
+      cout<<"data of two: "<<data<<endl;
+    } 
 };
-
+void swap(One& a,Two& b)
+{
+  int temp = a.data;
+  a.data = b.data;
+  b.data = temp;
+}
 int main()
 {
-    test1 x(65);
-    x.display();
-    test2 y(43);
-    y.display();
-    swap(x,y);
-    x.display();
-    y.display();
-    return 0;
+  One x(-4);
+  Two y(10);
+  x.display();
+  y.display();
+  swap(x,y);
+  x.display();
+  y.display();
+  return 0;
 }

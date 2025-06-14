@@ -25,7 +25,7 @@ class Time
         }
         friend Time add(Time t1,Time t2)
         {
-            Time temp;
+            Time temp(0,0,0,0);
             temp.sec = t1.sec + t2.sec;
             temp.min = t1.min + t2.min + temp.sec/60;
             temp.sec = temp.sec%60;
@@ -44,7 +44,7 @@ class Time
 
 int main()
 {
-    Time t1(4,3,56,40),t2(43,4,56,3),t3;
+    Time t1(4,3,56,40),t2(43,4,56,3),t3(0,0,0,0);
     t1.display();
     t2.display();
     t3 = add(t1,t2);
