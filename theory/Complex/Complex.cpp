@@ -27,3 +27,23 @@ void Complex::display()
     std::cout<<real<<" - "<<-imaginary<<"i"<<std::endl;
   }
 }
+
+std::ostream & operator <<(std::ostream &out,const Complex &c)
+{
+  out<<c.real;
+  if(c.imaginary>0)
+    out<<" + "<<c.imaginary<<"i"<<std::endl;
+  else {
+    out<<" - "<<-c.imaginary<<"i"<<std::endl;
+  } 
+  return out;
+}
+
+std::istream & operator >>(std::istream &in,Complex &c)
+{
+  std::cout<<"Enter the real part :";
+  in>>c.real;
+  std::cout<<"Enter the imaginary part";
+  in>>c.imaginary;
+  return in;
+}
