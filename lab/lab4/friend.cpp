@@ -34,7 +34,7 @@ bool operator >=(Test t1,Test t2)
 
 int main()
 {
-  Test t1(70),t2(92);
+  Test t1(70),t2(-2);
   t1.display() ;
   t2.display();
   if(t1>=t2)
